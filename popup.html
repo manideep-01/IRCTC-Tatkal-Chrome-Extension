@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>IRCTC Autofill Popup</title>
+    <script src="script.js" defer></script>
+    <script src="login.js" defer></script>
+</head>
+
+<body>
+    <div class="irctc-form">
+        <h1>IRCTC Autofill Popup</h1>
+        <form>
+            <!-- IRCTC Credential -->
+            <div class="irctc-credential-form">
+                <h2>IRCTC Credentials</h2>
+                <div>
+                    <div class="vertical-inputs">
+                        <div class="verticalfields">
+                            <label for="username">IRCTC Login username</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="verticalfields">
+                            <label for="password">IRCTC Login password</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Journey Details -->
+            <div class="journey-details-form">
+                <h2>Journey Details</h2>
+                <div>
+                    <div class="vertical-inputs">
+                        <div class="verticalfields">
+                            <label for="from-station">From station</label>
+                            <input type="text" id="from-station" name="from-station">
+                        </div>
+                        <div class="verticalfields">
+                            <label for="destination-station">Destination station</label>
+                            <input type="text" id="destination-station" name="destination-station">
+                        </div>
+                    </div>
+                    <div class="vertical-inputs">
+                        <div class="verticalfields">
+                            <label for="journey-date">Journey date (dd/mm/yyyy)</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="text" id="journey-date" name="journey-date">
+                            </div>
+                        </div>
+                        <div class="verticalfields">
+                            <label for="train-number">5-digit Train number</label>
+                            <input type="text" id="train-number" name="train-number">
+                        </div>
+                    </div>
+                    <div class="vertical-inputs">
+                        <div class="verticalfields">
+                            <label for="journey-class">Journey class</label>
+                            <select id="journey-class" name="journey-class">
+                                <option value="1A">1A</option>
+                                <option value="2A">2A</option>
+                                <option value="3A">3A</option>
+                                <option value="CC">CC</option>
+                                <option value="SL">SL</option>
+                            </select>
+                        </div>
+                        <div class="verticalfields">
+                            <label for="quota">Quota</label>
+                            <select id="quota" name="quota">
+                                <option value="GN">GN</option>
+                                <option value="Ladies">Ladies</option>
+                                <option value="Tatkal">Tatkal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add passenger -->
+            <div class="add-passenger-form">
+                <h2>Add Passenger Details</h2>
+                <div id="passenger-details">
+                    <div class="passenger-details" id="passenger1-details">
+                        <div class="vertical-inputs">
+                            <div class="passenger-vertical-field">
+                                <label for="passenger1-name">Passenger Name</label>
+                                <input type="text" id="passenger1-name" name="passenger1-name">
+                            </div>
+                            <div class="age-vertical-field">
+                                <label for="passenger1-age">Age</label>
+                                <input type="number" id="passenger1-age" name="passenger1-age" min="0">
+                            </div>
+                            <div class="gender-vertical-field">
+                                <label for="passenger1-gender">Gender</label>
+                                <select id="passenger1-gender" name="passenger1-gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Transgender">Transgender</option>
+                                </select>
+                            </div>
+                            <div class="verticalfields">
+                                <label for="passenger1-berth-preference">Berth Preference</label>
+                                <select id="passenger1-berth-preference" name="passenger1-berth-preference">
+                                    <option value="NoPreference">No Preference</option>
+                                    <option value="Lower">Lower</option>
+                                    <option value="Middle">Middle</option>
+                                    <option value="Upper">Upper</option>
+                                    <option value="SideLower">Side Lower</option>
+                                    <option value="SideUpper">Side Upper</option>
+                                </select>
+                            </div>
+                            <div class="verticalfields">
+                                <label for="passenger1-nationality">Nationality</label>
+                                <select id="passenger1-nationality" name="passenger1-nationality">
+                                    <option value="India">India</option>
+                                </select>
+                            </div>
+                            <div class="delete-passenger-btn-container">
+                                <button type="button" class="delete-passenger-btn" data-passenger="1">&#10006;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="add-passenger-btn">+Add Passenger Details</button>
+                    <button type="button" id="add-infant-btn">+Add Infant Without Berth</button>
+                </div>
+            </div>
+            <!-- GST Details -->
+            <div class="gst-details-form">
+                <h2>GST Details</h2>
+                 <div class="vertical-inputs">
+                    <div class="gst-vertical-field">
+                        <label for="gst-number">GST Number</label>
+                        <input type="text" id="gst-number" name="gst-number">
+                    </div>
+                </div>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="verticalfields">
+                        <label for="flat-door-block">Flat/Door/Block No.</label>
+                        <input type="text" id="flat-door-block" name="flat-door-block">
+                    </div>
+                </div>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                        <label for="street-lane">Street/Lane (Optional)</label>
+                        <input type="text" id="street-lane" name="street-lane">
+                    </div>
+                    <div class="verticalfields">
+                        <label for="area-locality">Area/Locality (Optional)</label>
+                        <input type="text" id="area-locality" name="area-locality">
+                    </div>
+                </div>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                        <label for="pin">PIN</label>
+                        <input type="text" id="pin" name="pin">
+                    </div>
+                    <div class="verticalfields">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Details -->
+            <div class="contact-details-form">
+                <h2>Contact Details</h2>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                        <label for="mobile-number">Mobile Number</label>
+                        <input type="tel" id="mobile-number" name="mobile-number">
+                    </div>
+                    <div class="verticalfields">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+            </div>
+            <!-- Other Preferences -->
+            <div class="other-preferences-form">
+                <h2>Other Preferences</h2>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                    <div class="checkbox-container">
+                         <input type="checkbox" id="auto-upgradation" name="auto-upgradation">
+                         <label for="auto-upgradation">Consider for Auto Upgradation</label>
+                    </div>
+                </div>
+                <div class="verticalfields">
+                    <div class="checkbox-container">
+                         <input type="checkbox" id="confirm-berth" name="confirm-berth">
+                         <label for="confirm-berth">Book only if confirm berths are allotted.</label>
+                    </div>
+                </div>
+                </div>
+                <div class="vertical-inputs">
+                    <div class="verticalfields">
+                         <label for="reservation-choice">Reservation Choice</label>
+                         <select id="reservation-choice" name="reservation-choice">
+                        <option value="Reservation Choice">Reservation Choice</option>
+                        <!-- Add other options as needed -->
+                        </select>
+                    </div>
+                    <div class="verticalfields">
+                          <label for="preferred-coach">Preferred Coach No.</label>
+                        <input type="text" id="preferred-coach" name="preferred-coach">
+                    </div>
+                </div>
+            </div>
+            <!-- Travel Insurance -->
+           <div class="travel-insurance-form">
+            <h2>Travel Insurance</h2>
+            <div class="vertical-inputs">
+                <div class="verticalfields">
+                    <div class="radiofields">
+                        <input type="radio" id="insurance-yes" name="travel-insurance" value="Yes">
+                        <label for="insurance-yes">
+                            Yes, and I accept the 
+                            <a href="https://contents.irctc.co.in/en/InsuranceTermCondition.pdf" target="_blank">
+                                terms & conditions
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="verticalfields">
+                    <div class="radiofields">
+                        <input type="radio" id="insurance-no" name="travel-insurance" value="No">
+                        <label for="insurance-no">No, I don't want travel insurance</label>
+                    </div>
+                </div>
+            </div>  
+           </div>
+            <!-- Payment Type -->
+           <div class="payment-type-form">
+            <h2>Payment Type</h2>
+            <p>Convenience fee is charged by IRCTC platform. We don't charge anything from user.</p>
+            <div class="verticalfields">
+                <div class="radio-payment">
+                    <input type="radio" id="payment-card" name="payment-type" value="card">
+                    <label for="payment-card">Pay through Credit & Debit Cards / Net Banking / Wallets / Bharat QR / Pay on Delivery / Rewards and Others
+                        <span class="description">Convenience Fee: ₹15/- + GST</span>
+                    </label>
+                </div>
+            </div>
+            <div class="verticalfields">
+                <div class="radio-payment">
+                   <input type="radio" id="payment-upi" name="payment-type" value="upi">
+                   <label for="payment-upi">Pay through BHIM/UPI
+                        <span class="description">Convenience Fee: ₹10/- + GST</span>
+                    </label>
+                </div>
+           </div>
+           </div>
+        <div class="button-form">
+            <p>For tatkal bookings, click CONNECT button 20secs before 10:00am / 11:00am</p>
+            <div class="vertical-inputs-button">
+                    <div class="button-container">
+                        <button type="button" class="save-data">SAVE DATA</button>
+                        <button type="button" class="load-data">LOAD DATA</button>
+                        <button type="button" class="clear-data">CLEAR DATA</button>
+                        <button type="button" class="connect">CONNECT</button>
+                    </div>
+            </div>
+        </div>
+        
+        </form>
+    </div>
+</body>
+
+</html>
